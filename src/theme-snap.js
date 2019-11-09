@@ -71,6 +71,13 @@ if (typeof Snap != 'undefined') {
         throw new Error('WebFont is required (https://github.com/typekit/webfontloader).');
       }
 
+      // SOH - added (see https://github.com/bramp/js-sequence-diagrams/issues/175)
+      if (fontFamily != 'danielbd') {
+        callback();
+        return;
+      }
+      // END SOH
+
       if (LOADED_FONTS[fontFamily]) {
         // If already loaded, just return instantly.
         callback();
